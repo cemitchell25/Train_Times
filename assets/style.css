@@ -1,0 +1,26 @@
+body {
+
+	background-image: url("../assets/trainmap.gif");
+	font-family: 'Sanchez', serif;
+
+}
+
+.jumbotron {
+
+	background: rgb(54, 200, 54);
+   background: rgba(54, 54, 200, 0.9); 
+   color: white;
+   font-weight: bolder;
+   padding: 20px;
+}
+
+#panel-style {
+
+	background-color: #6a00ff;
+}
+
+.panel-title {
+
+	color:white;
+	font-size: 25px;
+}
