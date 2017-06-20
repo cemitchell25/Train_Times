@@ -17,11 +17,14 @@
   $(document).on("click", "#add-train", function(event) {
 
   	event.preventDefault();
+  	
  	 // Grabs user input
 		var trainName = $("#train-input").val().trim();
 		var trainDest = $("#destination-input").val().trim();
-		var trainTime = moment($("#time-input").val().trim(), "HH:mm").subtract(10, "years").format("X");;
+		var trainTime = moment($("#time-input").val().trim(), "HH:mm").format("X");;
 		var trainFreq = $("#frequency-input").val().trim();
+
+
   // Creates local "temporary" object for holding employee data
 	  var newTrain = {
 	    name: trainName,
@@ -32,10 +35,9 @@
   // Uploads employee data to the database
   database.ref().push(newTrain);
   // Logs everything to console
-		  console.log(newTrain.name);
-		  console.log(newTrain.destination);
+
 		  console.log(newTrain.time);
-		  console.log(newTrain.frequency);
+
 		  // Alert
 		  alert("Train successfully added");
 			  // Clears all of the text-boxes
@@ -55,10 +57,6 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 	  var trainTime = childSnapshot.val().time;
 	  var trainFreq = childSnapshot.val().frequency;
 
-		  console.log(trainName);
-		  console.log(trainDest);
-		  console.log(trainTime);
-		  console.log(trainFreq);
 
 
 		var diffTime = moment().diff(moment.unix(trainTime), "minutes");
