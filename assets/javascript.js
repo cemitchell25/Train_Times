@@ -65,18 +65,18 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 		var timeRemainder = moment().diff(moment.unix(trainTime), "minutes") % trainFreq;
 		var minutes = trainFreq - timeRemainder;
 
-		var nextTrainArrival = moment().add(minutes, "m").format("hh:mm A"); 
+		var nextTrain = moment().add(minutes, "m").format("hh:mm A"); 
 		
 			// Test for correct times and info
 			console.log(minutes);
-			console.log(nextTrainArrival);
+			console.log(nextTrain);
 			console.log(moment().format("hh:mm A"));
-			console.log(nextTrainArrival);
+			console.log(nextTrain);
 			console.log(moment().format("X"));
 
 
 
   $("#recent-train > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDest + "</td><td>" +
- trainFreq + "</td><td>" + nextTrainArrival + "</td><td>" + minutes + "</td></tr>");
+ trainFreq + "</td><td>" + nextTrain + "</td><td>" + minutes + "</td></tr>");
 
 })});
